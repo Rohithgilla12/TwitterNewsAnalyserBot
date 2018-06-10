@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 # Twitter Access Tokens
 
-from config import *
+from NewsComparer.scripts.config import *
 
 # Connecting to twitter service
 
