@@ -26,11 +26,6 @@ NLP and plotting a box graph of both polarity and subjectivity
 3) Everyday update at 10:00 pm
 4) Hosted on Heruko
 
-## Future Additions:
-1) Adding more news channels and supporting more news headlines
-2) Adding a comparison Feature
-3) Adding a database integration
-
 Here's an image of bot in action:
 
 ![Sample](Images/Sample.png)
