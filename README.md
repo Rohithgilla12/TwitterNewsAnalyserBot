@@ -83,3 +83,4 @@ git push heroku master
 heroku ps:scale worker=1
 heroku logs --tail
 ```
+[![HitCount](http://hits.dwyl.io/RohithGilla12/TwitterNewsAnalyserBot.svg)](http://hits.dwyl.io/RohithGilla12/TwitterNewsAnalyserBot)
