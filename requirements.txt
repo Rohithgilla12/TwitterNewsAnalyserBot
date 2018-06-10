@@ -1,0 +1,7 @@
+tweepy
+re
+datetime
+bs4
+textblob
+matplotlib
+time

@@ -1,17 +1,14 @@
+import datetime
 import re
 import tweepy
 import requests
 from bs4 import BeautifulSoup
 from textblob import TextBlob
 import matplotlib.pyplot as plt
-import datetime
 
 # Twitter Access Tokens
 
-consumer_key = "Key"
-consumer_secret = "Key"
-access_token = "Key"
-access_token_secret = "Key"
+from config import *
 
 # Connecting to twitter service
 
@@ -58,10 +55,11 @@ def update():
             article_links.index(i)].text +
                               " by reuters #Reuters #Analysis")
 
+
 while True:
     currentDT = str(datetime.datetime.now())
     hours = currentDT.split(" ")[1].split(':')[0]
     minutes = currentDT.split(" ")[1].split(':')[1]
     seconds = int(float(currentDT.split(" ")[1].split(':')[-1]))
-    if(hours=='20' and minutes=='00' and seconds==0):
+    if hours == '20' and minutes == '00' and seconds == 0:
         update()
