@@ -7,26 +7,26 @@
 One of the most important things a person does on a daily basis is follow news. What is this concept of news and the nature of it? We all know that the above question is pretty self explanatory. So, what if the “news” that one gets to know is a modified version of truth?
 A lot of us do follow one or a couple of specific news channels and subscribe to a specific news paper. And in the process, we often miss out on how that information is being processed and released as news by the other media entities on the same topic. So the purpose of this is to bring into light, the differences and the extent upto which each media organisation is influencing/filtering what is reaching the reader, based on their own reasons and convenience so that, people are less likely to be deceived.
 
-##Brief on project:
+## Brief on project:
 Creation of a Twitter Bot which analyses and compares the similar kind of news and plots the polarity and subjectivity of the news channel on trending topic.
 A sample plot is shown at the end of the file.
 So the next update or task would be adding new news channels and comparing their similar news.
 
 
-##Work Flow:
+## Work Flow:
 1) Web Scraping the data from other news channels
 2) Comparison model to compare the similar kind of headings from different news channels
 3) Working with Twitter Bot
 4) Hosting it
 
-##Present functionality:
+## Present functionality:
 1) Gets the trending data from the Reuters and analysing it using
 NLP and plotting a box graph of both polarity and subjectivity
 2) Posts it on twitter
 3) Everyday update at 10:00 pm
 4) Hosted on Heruko
 
-##Future Additions:
+## Future Additions:
 1) Adding more news channels and supporting more news headlines
 2) Adding a comparison Feature
 3) Adding a database integration
