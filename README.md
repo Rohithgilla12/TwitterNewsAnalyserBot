@@ -28,7 +28,7 @@ NLP and plotting a box graph of both polarity and subjectivity
 
 Here's an image of bot in action:
 
-![Sample](../Images/Sample.png)
+![Sample](Images/Sample.png)
 ## Pre-requisites 
 
 1. Twitter Account
