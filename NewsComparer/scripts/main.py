@@ -7,6 +7,10 @@ from textblob import TextBlob
 import matplotlib
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
+#newspaper3k
+from newspaper import Article
+import nltk
+nltk.download('punkt')
 
 # Twitter Access Tokens
 
