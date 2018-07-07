@@ -65,3 +65,28 @@ update()
 #     seconds = int(float(currentDT.split(" ")[1].split(':')[-1]))
 #     if hours == '20' and minutes == '00' and seconds == 0:
 #         update()
+
+class NewsArticle:
+    text = ""
+    keywords = []
+    summary = ""
+    title = ""
+
+#using newpaper3k module to get text,title,summary and keywords
+#from the article/url link
+def news3k(url):
+    newsarticle = NewsArticle()
+    article = Article(url)
+    article.download()
+    article.parse()
+    newsarticle.title = article.title
+    newsarticle.text = article.text
+    article.nlp()
+    newsarticle.keywords = article.keywords
+    newsarticle.summary = article.summary
+    return newsarticle
+
+# newsarticle = news3k('https://in.reuters.com/article/soccer-worldcup-bra-bel/soccer-belgium-hold-off-brazil-in-thriller-to-reach-semis-idINKBN1JW2UO')
+# print(newsarticle.keywords)
+# print("\n"+newsarticle.text)
+# print("\n"+newsarticle.title)
