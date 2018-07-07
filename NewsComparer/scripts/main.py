@@ -260,8 +260,41 @@ def plot_similar_news(compared_dict):
 # print("\n"+newsarticle.text)
 # print("\n"+newsarticle.title)
 
+def update_NDTV():
+    url = 'https://www.ndtv.com/trends/'
+    r = requests.get(url)
+    soup = BeautifulSoup(r.content, 'html.parser')
+    links = []
+    for link in soup.find_all(href=re.compile('\?trendingnow')):
+        links.append(link.get('href'))
+
+    for i in links:
+        r = requests.get(i)
+
+        soup = BeautifulSoup(r.content, 'html.parser')
+        temp = soup.findAll('p')
+        message = str(i) + "\n"
+        for j in temp:
+            message += j.text + '\n'
+        blob = TextBlob(message).sentiment
+        polarity = blob[0]
+        val = 0
+        if polarity > 0:
+            val = 1
+        subjectivity = blob[1]
+        color_dict = ['red', 'green']
+        plt.bar(['Polarity', 'Subjectivity'], [polarity, subjectivity], color=color_dict[val])
+
+
+        plt.title(str(i))
+        plt.savefig('ndtv.png')
+        plt.clf()
+        api.update_with_media('ndtv.png', "This is the polarity and subjectivity on the topic " + str(i)+" by NDTV #NDTV #Analysis")
+
+        
 updateReuters()
 updateHindustanTimes()
+update_NDTV()
 compared_dict=compare(ht_headings,ht_article_links, list_of_titles,article_links)
 plot_similar_news(compared_dict)   
 
