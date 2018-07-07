@@ -62,6 +62,61 @@ def update():
                               " by reuters #Reuters #Analysis")
 update()
 
+
+
+        
+        
+        
+        
+def updateHindustanTimes():
+    url = 'https://www.hindustantimes.com/rss/topnews/rssfeed.xml'
+    r = requests.get(url)
+    soup = BeautifulSoup(r.content, 'xml')
+    items=soup.find_all('item')
+
+
+
+
+    article_links = []
+    headings=[]
+
+
+    for i in items:
+        headings.append(i.find('title').text)
+        link=(i.find('link')).text
+        print(i.find('title').text)
+        article_links.append(link)
+        
+        
+    
+
+
+    for i in article_links:
+        r = requests.get(i)
+        soup = BeautifulSoup(r.content, 'html.parser')
+        temp = soup.findAll('p')
+
+        
+        indx=article_links.index(i)
+        message = headings[indx]
+        
+        for j in temp:
+            message += j.text + '\n'
+        blob = TextBlob(message).sentiment
+        polarity = blob[0]
+        subjectivity = blob[1]
+        plt.bar(['Polarity', 'Subjectivity'], [polarity, subjectivity])
+        plt.title(headings[indx])
+        plt.show()
+        plt.savefig('htnews.png')
+        plt.clf()
+
+#     api.update_with_media('Dude.png', "This is the polarity and subjectivity on the topic " + links[
+#         article_links.index(i)].text +
+#                           " by reuters #Reuters #Analysis")
+        
+        
+
 # while True:
 #     currentDT = str(datetime.datetime.now())
 #     hours = currentDT.split(" ")[1].split(':')[0]
