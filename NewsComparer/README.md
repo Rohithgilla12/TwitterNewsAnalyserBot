@@ -45,7 +45,8 @@ Here's an image of bot in action:
 ### Installation
 
 ```bash
-pip install requirements.txt  
+cd NewsComparer
+pip install -r requirements.txt
 ```
 
 ### Creating twitter api credentials
