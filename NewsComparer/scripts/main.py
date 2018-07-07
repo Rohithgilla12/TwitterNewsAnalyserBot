@@ -42,8 +42,15 @@ def news3k(url):
     newsarticle.summary = article.summary
     return newsarticle
 
-# Getting tredning News
+#get colorcode for polarity and subjectivity
+# <0 red, >0 green
+def getColor(val):
+    if val>0: 
+        return 'g'
+    else: 
+        return 'r'
 
+# Getting tredning News
 def update():
     url = 'https://in.reuters.com/news/top-news'
     r = requests.get(url)
@@ -71,7 +78,9 @@ def update():
         blob = TextBlob(articleNews.text).sentiment
         polarity = blob[0]
         subjectivity = blob[1]
-        plt.bar(['Polarity', 'Subjectivity'], [polarity, subjectivity])
+        bar = plt.bar(['Polarity', 'Subjectivity'], [polarity, subjectivity])
+        bar[0].set_color(getColor(polarity))
+        bar[1].set_color(getColor(subjectivity))
         plt.title(articleNews.title)
         plt.savefig('Dude.png')
         plt.clf()
@@ -80,7 +89,6 @@ def update():
                               " by reuters #Reuters #Analysis")
 update()
 
-    
 def updateHindustanTimes():
     url = 'https://www.hindustantimes.com/rss/topnews/rssfeed.xml'
     r = requests.get(url)
@@ -100,13 +108,16 @@ def updateHindustanTimes():
     for i in article_links:
         r = requests.get(i)
         soup = BeautifulSoup(r.content, 'html.parser')
-        temp = soup.findAll('p')
+        
+        #temp = soup.findAll('p')
         print(i)
         articleNews = news3k(i)
         blob = TextBlob(articleNews.text).sentiment
         polarity = blob[0]
         subjectivity = blob[1]
-        plt.bar(['Polarity', 'Subjectivity'], [polarity, subjectivity])
+        bar = plt.bar(['Polarity', 'Subjectivity'], [polarity, subjectivity])
+        bar[0].set_color(getColor(polarity))
+        bar[1].set_color(getColor(subjectivity))
         plt.title(articleNews.title)
         plt.show()
         plt.savefig('htnews.png')
