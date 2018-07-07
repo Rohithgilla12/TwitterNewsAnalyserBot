@@ -47,14 +47,11 @@ def update():
         r = requests.get(i)
         soup = BeautifulSoup(r.content, 'html.parser')
         temp = soup.findAll('p')
-        message = links[article_links.index(i)].text + "\n"
-        for j in temp:
-            message += j.text + '\n'
-        blob = TextBlob(message).sentiment
+        blob = TextBlob(news3k(article_links.index(i)).text).sentiment
         polarity = blob[0]
         subjectivity = blob[1]
         plt.bar(['Polarity', 'Subjectivity'], [polarity, subjectivity])
-        plt.title(links[article_links.index(i)].text)
+        plt.title(news3k(article_links.index(i)).title)
         plt.savefig('Dude.png')
         plt.clf()
         api.update_with_media('Dude.png', "This is the polarity and subjectivity on the topic " + links[
