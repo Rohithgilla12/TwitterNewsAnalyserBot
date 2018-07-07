@@ -4,11 +4,13 @@ import tweepy
 import requests
 from bs4 import BeautifulSoup
 from textblob import TextBlob
+import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 
 # Twitter Access Tokens
 
-from NewsComparer.scripts.config import *
+from config import *
 
 # Connecting to twitter service
 
@@ -54,6 +56,8 @@ def update():
         api.update_with_media('Dude.png', "This is the polarity and subjectivity on the topic " + links[
             article_links.index(i)].text +
                               " by reuters #Reuters #Analysis")
+update()
+
 
 
         
@@ -108,10 +112,12 @@ def updateHindustanTimes():
 #                           " by reuters #Reuters #Analysis")
         
         
-while True:
-    currentDT = str(datetime.datetime.now())
-    hours = currentDT.split(" ")[1].split(':')[0]
-    minutes = currentDT.split(" ")[1].split(':')[1]
-    seconds = int(float(currentDT.split(" ")[1].split(':')[-1]))
-    if hours == '20' and minutes == '00' and seconds == 0:
-        update()
+
+# while True:
+#     currentDT = str(datetime.datetime.now())
+#     hours = currentDT.split(" ")[1].split(':')[0]
+#     minutes = currentDT.split(" ")[1].split(':')[1]
+#     seconds = int(float(currentDT.split(" ")[1].split(':')[-1]))
+#     if hours == '20' and minutes == '00' and seconds == 0:
+#         update()
+
