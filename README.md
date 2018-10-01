@@ -19,12 +19,6 @@ So the next update or task would be adding new news channels and comparing their
 3) Working with Twitter Bot
 4) Hosting it
 
-## Present functionality:
-1) Gets the trending data from the Reuters and analysing it using
-NLP and plotting a box graph of both polarity and subjectivity
-2) Posts it on twitter
-3) Everyday update at 10:00 pm
-4) Hosted on Heruko
 
 Here's an image of bot in action:
 
