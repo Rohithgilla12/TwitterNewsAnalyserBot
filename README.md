@@ -52,6 +52,7 @@ pip install requirements.txt
     * Description.
 3. Goto Keys and tokens and generate your access tokens.
 
+** But twitter updated their policy and so some changes need to be done **
 
 ### Using the tweepy api
 
